@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='utf-8' />
+  <title>Create interactive hover effects with Mapbox GL JS</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1' />
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v3.1.0/mapbox-gl.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v3.1.0/mapbox-gl.css' rel='stylesheet' />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    #map {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+    }
+	
+	.quake-info {
+	position: absolute;
+	font-family: sans-serif;
+	margin-top: 5px;
+	margin-left: 5px;
+	padding: 5px;
+	width: 30%;
+	border: 2px solid black;
+	font-size: 14px;
+	color: #222;
+	background-color: #fff;
+	border-radius: 3px;
+}
+
+  </style>
+</head>
+<body>
+
+  <div id='map'></div>
+  
+  <div class='quake-info'>
+  <div><strong>ID:</strong> <span id='id'></span></div>
+  <div><strong>Name:</strong> <span id='name'></span></div>
+  </div>
+
+  <script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoieGVsYXBob24iLCJhIjoiY2xyd3JhZmd5MTZlMzJqcnphZ2hram0xdCJ9.qpnL5_UBg6JGdBDKvCMAWQ';
+    const map = new mapboxgl.Map({
+      container: 'map', // Specify the container ID
+      style: 'mapbox://styles/mapbox/outdoors-v12', // Specify which map style to use
+      center: [-118.528554, 34.240028], // Specify the starting position [lng, lat]
+      zoom: 15.63 // Specify the starting zoom
+    });
+	
+	const idDisplay = document.getElementById('id');
+	const nameDisplay = document.getElementById('name');
+	
+	map.on('style.load', () => {
+	// Insert the layer beneath any symbol layer.
+	console.log("hi");
+	const layers = map.getStyle().layers;
+	const labelLayerId = layers.find(
+	(layer) => layer.type === 'symbol' && layer.layout['text-field']
+	).id;
+	
+	map.addSource('buildings', {
+		type: 'vector',
+		url: 'buildings.json'
+	});
+	 
+	// The 'building' layer in the Mapbox Streets
+	// vector tileset contains building height data
+	// from OpenStreetMap.
+	map.addLayer(
+	{
+	'id': 'add-3d-buildings',
+	'source': 'composite',
+	'source-layer': 'building',
+	'filter': ['==', 'extrude', 'true'],
+	'type': 'fill-extrusion',
+	'minzoom': 15,
+	'paint': {
+	
+	'fill-extrusion-color': '#5ef6fb',
+	 
+	// Use an 'interpolate' expression to
+	// add a smooth transition effect to
+	// the buildings as the user zooms in.
+	'fill-extrusion-height': [
+	'interpolate',
+	['linear'],
+	['zoom'],
+	15,
+	0,
+	15.05,
+	['get', 'height']
+	],
+	'fill-extrusion-base': [
+	'interpolate',
+	['linear'],
+	['zoom'],
+	15,
+	0,
+	15.05,
+	['get', 'min_height']
+	],
+	'fill-extrusion-opacity': 0.6
+	}
+	},
+	labelLayerId
+	);
+	
+	map.addLayer(
+	{
+	'id': 'identify-buildings',
+	'source': 'composite',
+	'source-layer': 'building',
+	'filter': ['==', 'extrude', 'true'],
+	'type': 'fill',
+	'minzoom': 15,
+	'paint': {
+	
+	'fill-color': [
+		'match',
+		['get', 'name'],
+		'Arbor Grill', 
+		'#f567f7',
+		'#000000'
+	]
+	 
+	}
+	},
+	labelLayerId
+	);
+	
+	});
+	
+	map.on('mousemove', 'identify-buildings', (event) => {
+	  map.getCanvas().style.cursor = 'pointer';
+	  console.log("test");
+	  // Set constants equal to the current feature's magnitude, location, and time
+	  const id = event.features[0].id;
+	  console.log(event.features[0].id)
+
+	  // Check whether features exist
+	  if (event.features.length === 0) return;
+	  // Display the id in the sidebar
+	  idDisplay.textContent = id;
+	  
+	  map.setPaintProperty('building', 'fill-color', ['match', id, 6427398, '#FF0000', '#00FF00']);
+	  // If ID for the hovered feature is not null,
+	  // use removeFeatureState to reset to the default behavior
+	});
+
+  </script>
+
+</body>
+</html>
