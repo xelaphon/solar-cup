@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='utf-8' />
+  <title>Map of CSUN</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1' />
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v3.1.0/mapbox-gl.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v3.1.0/mapbox-gl.css' rel='stylesheet' />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    #map {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+    }
+	
+	.building-info {
+	position: absolute;
+	font-family: sans-serif;
+	margin-top: 5px;
+	margin-left: 5px;
+	padding: 5px;
+	width: 30%;
+	border: 2px solid black;
+	font-size: 14px;
+	color: #222;
+	background-color: #fff;
+	border-radius: 3px;
+}
+
+  </style>
+</head>
+<body>
+
+  <div id='map'></div>
+  
+  <div class='building-info'>
+  <div><strong>ID:</strong> <span id='id'></span></div>
+  <div><strong>Name:</strong> <span id='name'></span></div>
+  </div>
+
+  <script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoieGVsYXBob24iLCJhIjoiY2xyd3JhZmd5MTZlMzJqcnphZ2hram0xdCJ9.qpnL5_UBg6JGdBDKvCMAWQ';
+    const map = new mapboxgl.Map({
+      container: 'map', // Specify the container ID
+      style: 'mapbox://styles/mapbox/outdoors-v12', // Specify which map style to use
+      center: [-118.528554, 34.240028], // Specify the starting position [lng, lat]
+      zoom: 15.63 // Specify the starting zoom
+    });
+	
+	const idDisplay = document.getElementById('id');
+	const nameDisplay = document.getElementById('name');
+	
+	const buildingInfo = {"2122586":{"name":"Jacaranda Hall"},"6427393":{"name":"Parking Structure B3"},"6427394":{"name":"Cypress Hall"},"6427395":{"name":"Education"},"6427396":{"name":"Jeanne Chisholm Hall"},"6427397":{"name":"other"},"6427398":{"name":"University Library"},"6427399":{"name":"University Student Union"},"6427400":{"name":"other"},"6655319":{"name":"other"},"6655322":{"name":"other"},"6655323":{"name":"other"},"6655331":{"name":"other"},"6817454":{"name":"other"},"6817455":{"name":"other"},"6817456":{"name":"other"},"6817457":{"name":"University Library"},"6851814":{"name":"Student Recreation Center"},"6852370":{"name":"Citrus Hall"},"6852371":{"name":"Magnolia Hall"},"6852372":{"name":"Eucalyptus Hall"},"6852373":{"name":"Live Oak Hall"},"6852374":{"name":"other"},"6852409":{"name":"Donald Bianchi Planetarium"},"6855295":{"name":"Sierra Hall"},"6855296":{"name":"Sierra Tower"},"6855297":{"name":"Jerome Richfield Hall"},"6855298":{"name":"Sierra Center"},"6855299":{"name":"other"},"6855301":{"name":"Nordhoff Hall"},"6997650":{"name":"Monterey Hall"},"7000783":{"name":"other"},"7000784":{"name":"other"},"7017925":{"name":"Cypress Hall"},"9845873":{"name":"other"},"9848395":{"name":"other"},"158462302":{"name":"Johnson Auditorium"},"158464581":{"name":"Chaparral Hall"},"158612444":{"name":"other"},"158612446":{"name":"other"},"432157457":{"name":"Addie Klotz Student Health Center"},"432157458":{"name":"Art and Design Center"},"432157459":{"name":"Art and Design Center"},"432157462":{"name":"Art and Design Center"},"432157466":{"name":"Art and Design Center"},"432157468":{"name":"Art and Design Center"},"432157469":{"name":"Art and Design Center"},"432157470":{"name":"Art and Design Center"},"432157471":{"name":"Auto Shop"},"432157472":{"name":"Parking Structure B5"},"432157477":{"name":"other"},"432157498":{"name":"Bayramian Hall"},"432157508":{"name":"other"},"432157518":{"name":"Campus Store Complex"},"432157528":{"name":"other"},"432157538":{"name":"University Village Apartments"},"432157542":{"name":"other"},"432157545":{"name":"Post Office"},"432157546":{"name":"other"},"432157547":{"name":"Physical Plant Management"},"432157548":{"name":"Central Plant"},"432157549":{"name":"other"},"432157550":{"name":"other"},"432157551":{"name":"other"},"432157552":{"name":"other"},"432157553":{"name":"other"},"432157554":{"name":"Education Administration"},"432157555":{"name":"other"},"432157556":{"name":"Student Development"},"432157559":{"name":"other"},"432157564":{"name":"other"},"432157568":{"name":"other"},"432157569":{"name":"Intercollegiate Athletics Office"},"432157570":{"name":"Bookstein Hall"},"432157572":{"name":"other"},"432157576":{"name":"other"},"432157579":{"name":"other"},"432157580":{"name":"other"},"432157581":{"name":"Manzanita Hall"},"432157582":{"name":"other"},"432157583":{"name":"other"},"432157585":{"name":"other"},"432157587":{"name":"Parking Structure G3"},"432157588":{"name":"Physical Plant Management"},"432157589":{"name":"other"},"432157590":{"name":"Police Services"},"432157591":{"name":"other"},"432157592":{"name":"Oasis Wellness Center"},"432157593":{"name":"Redwood Hall"},"432157594":{"name":"other"},"432157596":{"name":"other"},"432157597":{"name":"other"},"432157598":{"name":"Santa Susana Hall"},"432157599":{"name":"Satellite Central Plant"},"432157600":{"name":"other"},"432157601":{"name":"Sequoia Hall"},"432157602":{"name":"other"},"432157603":{"name":"other"},"432157605":{"name":"other"},"432157607":{"name":"other"},"432157608":{"name":"Physical Plant Management"},"432157609":{"name":"Valera Hall"},"432157610":{"name":"University Student Union"},"432157611":{"name":"other"},"432157612":{"name":"The Soraya"},"432157613":{"name":"other"},"432157614":{"name":"other"},"432157615":{"name":"other"},"432157616":{"name":"other"},"432157617":{"name":"other"},"432157618":{"name":"Art and Design Center"},"432157619":{"name":"other"},"432157620":{"name":"other"},"432157622":{"name":"other"},"432157624":{"name":"University Village Apartments"},"432157625":{"name":"University Village Apartments"},"432157626":{"name":"University Village Apartments"},"432157628":{"name":"other"},"432157629":{"name":"other"},"432157630":{"name":"other"},"432157631":{"name":"other"},"432157632":{"name":"University Village Apartments"},"432157633":{"name":"other"},"432157635":{"name":"other"},"432157637":{"name":"other"},"432157655":{"name":"other"},"432157658":{"name":"other"},"432157664":{"name":"other"},"432157666":{"name":"other"},"432157669":{"name":"other"},"432157673":{"name":"other"},"432157679":{"name":"other"},"432157685":{"name":"other"},"432157688":{"name":"other"},"432157694":{"name":"other"},"432157700":{"name":"other"},"432157703":{"name":"other"},"432157706":{"name":"other"},"432157710":{"name":"other"},"432157711":{"name":"other"},"432157712":{"name":"other"},"432157713":{"name":"other"},"432157716":{"name":"other"},"432157718":{"name":"other"},"432157719":{"name":"other"},"432157721":{"name":"other"},"432157722":{"name":"other"},"432157723":{"name":"other"},"432157725":{"name":"other"},"432157727":{"name":"other"},"432157728":{"name":"other"},"432157729":{"name":"Aquatic Center"},"432157730":{"name":"other"},"432157731":{"name":"other"},"432157732":{"name":"other"},"432157734":{"name":"other"},"432157735":{"name":"other"},"432157737":{"name":"other"},"432157742":{"name":"other"},"432157743":{"name":"other"},"432157744":{"name":"other"},"432157745":{"name":"other"},"432157746":{"name":"other"},"432157747":{"name":"other"},"432157748":{"name":"other"},"432157750":{"name":"other"},"432157752":{"name":"other"},"432157755":{"name":"other"},"432157757":{"name":"other"},"432157761":{"name":"other"},"432157762":{"name":"other"},"432157765":{"name":"Physical Plant Management"},"432157766":{"name":"Arbor Grill"},"432157767":{"name":"other"},"432157768":{"name":"University Village Apartments"},"432157769":{"name":"University Village Apartments"},"432157770":{"name":"other"},"432157771":{"name":"other"},"432157772":{"name":"University Village Apartments"},"432157773":{"name":"University Village Apartments"},"432157774":{"name":"University Village Apartments"},"432157775":{"name":"University Village Apartments"},"432157776":{"name":"University Village Apartments"},"432157777":{"name":"other"},"432157778":{"name":"other"},"432157779":{"name":"University Village Apartments"},"432157780":{"name":"other"},"433133706":{"name":"other"},"459660655":{"name":"other"},"459660660":{"name":"other"},"477602212":{"name":"other"},"477602213":{"name":"other"},"598227522":{"name":"Extended University Commons"},"639235130":{"name":"Sustainability Center"},"640393835":{"name":"other"},"640434480":{"name":"other"},"707539331":{"name":"other"},"707539332":{"name":"other"},"707539333":{"name":"other"},"708086347":{"name":"Plaza del Sol"},"708086348":{"name":"Plaza del Sol"},"708155006":{"name":"other"},"710440242":{"name":"other"},"848698981":{"name":"Parking Structure G6"},"1020399834":{"name":"other"},"1061834081":{"name":"other"},"1063040775":{"name":"other"},"1063324885":{"name":"other"},"1063359376":{"name":"other"},"1076205533":{"name":"other"},"1158805573":{"name":"Lilac Hall"},"1230443608":{"name":"other"},"188740808209805":{"name":"other"},"5437676688513775":{"name":"other"},"836975304610285":{"name":"other"},"1864549018748865":{"name":"other"},"2909178995110835":{"name":"other"},"1219755422833595":{"name":"other"},"1057288064715525":{"name":"other"},"4616730731156175":{"name":"other"},"65835421621885":{"name":"other"},"1104038384132715":{"name":"other"},"5071279240170905":{"name":"other"},"470653286898265":{"name":"other"},"1646651575136795":{"name":"other"},"2149025813059035":{"name":"other"}};
+
+
+  
+	map.on('style.load', () => {
+		// Insert the layer beneath any symbol layer.
+		console.log("hi");
+		const layers = map.getStyle().layers;
+		const labelLayerId = layers.find(
+		(layer) => layer.type === 'symbol' && layer.layout['text-field']
+		).id;
+		
+		/*map.addSource('buildings', {
+			type: 'vector',
+			url: 'buildings.json'
+		});*/
+			map.addSource('map-outline', {
+				'type': 'geojson', 
+				'data': {
+					'type': 'Feature', 
+					'geometry': {
+						'type': 'Polygon',
+						'coordinates': [ 
+						[
+							[-118.53381610203138, 34.2445743763931],
+							[-118.52924593247594, 34.2445743763931],
+							[-118.52924593247594, 34.242733183275874],
+							[-118.52469574477936, 34.242733183275874],
+							[-118.52469574477936, 34.24362380493486],
+							[-118.5234156387037, 34.24362380493486],
+							[-118.5234156387037, 34.2425487108279],
+							
+							[-118.52462166754893, 34.2425487108279],
+							[-118.52462166754893, 34.23735212290945],
+							[-118.52734520609741, 34.23735212290945],
+							[-118.52734520609741, 34.23550102690266],
+							[-118.53381610203138, 34.23550102690266],
+							[-118.53381610203138, 34.2445743763931]
+						]
+						]
+					}
+			}
+			});
+		 
+		// The 'building' layer in the Mapbox Streets
+		// vector tileset contains building height data
+		// from OpenStreetMap.
+		map.addLayer(
+		{
+		'id': 'add-3d-buildings',
+		'source': 'composite',
+		'source-layer': 'building',
+		'filter': ['==', 'extrude', 'true'],
+		'type': 'fill-extrusion',
+		'minzoom': 15,
+		'paint': {
+		
+		'fill-extrusion-color': '#5ef6fb',
+		 
+		// Use an 'interpolate' expression to
+		// add a smooth transition effect to
+		// the buildings as the user zooms in.
+		'fill-extrusion-height': [
+		'interpolate',
+		['linear'],
+		['zoom'],
+		15,
+		0,
+		15.05,
+		['get', 'height']
+		],
+		'fill-extrusion-base': [
+		'interpolate',
+		['linear'],
+		['zoom'],
+		15,
+		0,
+		15.05,
+		['get', 'min_height']
+		],
+		'fill-extrusion-opacity': 0.6
+		}
+		},
+		labelLayerId
+		);
+		
+		map.addLayer(
+		{
+			'id': 'identify-buildings',
+			'source': 'composite',
+			'source-layer': 'building',
+			'filter': ['==', 'extrude', 'true'],
+			'type': 'fill',
+			'minzoom': 15,
+			'paint': {
+			
+			'fill-color': '#000'
+			 
+			}
+		},
+		labelLayerId
+		);
+		
+		map.addLayer(
+		{
+			'id': 'outline',
+			'type': 'line', 
+			'source': 'map-outline', 
+			'layout': {},
+			'paint': {
+				'line-color': '#000000',
+				'line-width': 3
+			}
+		}
+		);
+		
+	  /*
+		const ii = setInterval(() => {
+			const features = map.queryRenderedFeatures({layers: ['identify-buildings']});
+			if (features.length > 0) clearInterval(ii);
+				console.log(features);
+		}, 500);
+		/*setTimeout(()=>{
+			
+			
+			for (const feature of features){
+				console.log(feature);
+		};
+		}, 5000);*/
+		
+			showBuildingInfo();
+	});
+	
+	map.on('mousemove', 'identify-buildings', (event) => {
+	  map.getCanvas().style.cursor = 'pointer';
+	  const id = event.features[0].id;
+	  
+	  let name = undefined;
+	  if(buildingInfo[event.features[0].id]) {
+		name = buildingInfo[event.features[0].id].name;
+	  };
+	  
+	  // console.log(buildingInfo[event.features[0].id]);
+	  
+	  
+	  // console.log(event.features[0].id)
+
+	  // Check whether features exist
+	  if (event.features.length === 0) return;
+	  // Display the id in the sidebar
+	  idDisplay.textContent = id;
+	  nameDisplay.textContent = name;
+	  
+	  /* map.setPaintProperty('building', 'fill-color', ['match', id, 6427398, '#FF0000', '#00FF00']); */
+	  map.setPaintProperty('building', 'fill-color', '#0000FF');
+	  // If ID for the hovered feature is not null,
+	  // use removeFeatureState to reset to the default behavior
+	});
+  
+  let selected = null;
+  const showBuildingInfo = () =>
+    map.setPaintProperty('identify-buildings', 'fill-color',
+      ['case',
+        ['==', ['id'], selected], 'purple',
+        ['in', ['to-string', ['id']], ["literal", Object.keys(buildingInfo).filter(id => buildingInfo[id].name === 'other')]], 'green',
+        ['in', ['to-string', ['id']], ["literal", Object.keys(buildingInfo)]], 'red',
+        'black'
+      ]);
+	
+  /*map.on('click', 'identify-buildings', e => {
+    const id = e?.features?.[0]?.id;
+    if (!id) return;
+
+    // if it's new, select it
+    if (id !== selected) {
+      selected = id;
+      showBuildingInfo();
+      return;
+    }
+
+    // if it's already selected, ask xela for the name
+    const name = prompt("Name for " + id + "?", buildingInfo[id]?.name ?? "");
+
+    if (name === null) {
+      // cancel or esc pushed, don't save
+      return;
+    } else if (name !== "") {
+      // name the thing the name
+      buildingInfo[id] ??= {};
+      buildingInfo[id].name = name;
+    } else {
+      // empty string, delete entry
+      delete buildingInfo[id];
+    }
+    nameDisplay.textContent = name;
+    console.log("buildingInfo = " + JSON.stringify(buildingInfo));
+    selected = null;
+    showBuildingInfo();
+  });*/
+
+  </script>
+
+</body>
+</html>
