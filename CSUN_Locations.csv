@@ -1,0 +1,48 @@
+15 min Energy Abbreviation,Campus Map Abbreviation,Building Name,In borders?,kW given?,kWh given?,Generation?,Usage?,Node (if solar),kVA,Actual kVA used
+ADC,AC,Art and Design Center,yes,yes,yes,no,yes,-,,
+AR,AR,Arbor Grill,yes,yes,yes,no,yes,-,,
+BB,BB,Bookstein Hall,yes,yes,yes,no,yes,-,,
+BH,BH,Bayramian Hall,yes,yes,yes,no,yes,-,,
+BK,CSC,Campus Store Complex,yes,yes,yes,yes,yes,bk,1500,212
+BP,BP,Donald Bianchi Planetarium,yes,yes,yes,no,yes,-,,
+CR,CR,Chaparral Hall,yes,yes,yes,no,yes,-,,
+CS,CS,Citrus Hall,yes,yes,yes,no,yes,-,,
+CY,CY,Cypress Hall,yes,yes,yes,no,yes,-,,
+ED,ED,Education,yes,yes,yes,no,yes,-,,
+EH,EH,Eucalyptus Hall,yes,yes,yes,no,yes,-,,
+JD,JD,Jacaranda Hall,yes,yes,yes,yes,yes,jd,800,641
+JR,JR,Jerome Richfield Hall,yes,yes,yes,no,yes,-,,
+LL,LL,Lilac Hall,yes,yes,yes,no,yes,-,,
+LO,LO,Live Oak Hall,yes,yes,yes,no,yes,-,,
+MDF,MDF,Main Distribution Facility,yes,yes,yes,no,yes,-,,
+MG,MG,Magnolia Hall,yes,yes,yes,no,yes,-,,
+MZ,MZ,Manzanita Hall,yes,yes,yes,no,yes,-,,
+NC: H,Field North of F10,North Campus Hill Top (Trailers near Boeing Site),no,yes,yes,no,yes,-,,
+NC: R,G12,North Campus Rydell (Parking Lot Leased Out),no,yes,yes,no,yes,-,,
+NH,NH,Nordhoff Hall,yes,yes,yes,no,yes,-,,
+OV,UL,University Library,yes,yes,yes,yes,yes,ov,2900,393
+PL: B2,PL: B2,Parking Lot B2,yes,yes,yes,yes,no,AAA,,1000
+PL: E6,PL: E6,Parking Lot E6,no,yes,yes,yes,no,AAA,,400
+PPM,PPM,Physical Plant Management,yes,yes,yes,no,yes,-,,
+PS: B3,PS: B3,Parking Structure B3,yes,yes,yes,yes,yes,107,4330,1480
+PS: B5,PS: B5,Parking Structure B5,yes,yes,yes,yes,yes,AAA,,
+PS: G3,PS: G3,Parking Structure G3,yes,yes,yes,yes,yes,ps:g3,200,682
+RE,RE,Redwood Hall,yes,yes,yes,yes,yes,AAA,,584
+SC,SC,Sierra Center,yes,no,yes,no,yes,-,,
+SH,SH,Sierra Hall,yes,yes,yes,yes,yes,AAA,,140
+SQ,SQ,Sequoia Hall,yes,yes,yes,no,yes,-,,
+SRC,SRC,Student Recreation Center,yes,no,yes,no,yes,-,,
+ST,ST,Sierra Tower,yes,yes,yes,no,yes,-,,
+UN,VH,Valera Hall,yes,yes,yes,no,yes,-,,
+USU,USU,University Student Union,yes,no,yes,yes,yes,AAA,,93
+VPAC,TS,The Soraya,yes,no,yes,no,yes,-,,
+,PS: G6,Parking Structure G6,yes,no,no,yes,no,AAA,,639
+,PL: B1,Parking Lot B1,yes,no,no,yes,no,AAA,,947
+,PL: B4,Parking Lot B4,yes,no,no,yes,no,AAA,,522
+,PL:B6,Parking Lot B6,yes,no,no,yes,no,AAA,,780
+,PL:B5,Parking Lot B5,yes,no,no,yes,no,AAA,,
+,PL:C6,Parking Lot C6,yes,no,no,yes,no,AAA,,
+,PL:D6,Parking Lot D6,yes,no,no,yes,no,AAA,,
+,PL:E5,Parking Lot E5,yes,no,no,yes,no,AAA,,407
+,PL:F5,Parking Lot F5,yes,no,no,yes,no,AAA,,623
+,,,,,,20,,,,
