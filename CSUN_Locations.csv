@@ -1,47 +1,47 @@
-15 min Energy Abbreviation,Campus Map Abbreviation,Building Name,In borders?,kW given?,kWh given?,Generation?,Usage?,Node (if solar),kVA,Actual kVA used,,
-ADC,AC,Art and Design Center,yes,yes,yes,no,yes,-,,,,
-AR,AR,Arbor Grill,yes,yes,yes,no,yes,-,,,,
-BB,BB,Bookstein Hall,yes,yes,yes,no,yes,-,,,,
-BH,BH,Bayramian Hall,yes,yes,yes,no,yes,-,,,,
-BK,CSC,Campus Store Complex,yes,yes,yes,yes,yes,bk,1500,212,,
-BP,BP,Donald Bianchi Planetarium,yes,yes,yes,no,yes,-,,,,
-CR,CR,Chaparral Hall,yes,yes,yes,no,yes,-,,,,
-CS,CS,Citrus Hall,yes,yes,yes,no,yes,-,,,,
-CY,CY,Cypress Hall,yes,yes,yes,no,yes,-,,,,
-ED,ED,Education,yes,yes,yes,no,yes,-,,,,
-EH,EH,Eucalyptus Hall,yes,yes,yes,no,yes,-,,,,
-JD,JD,Jacaranda Hall,yes,yes,yes,yes,yes,jd,800,641,,
-JR,JR,Jerome Richfield Hall,yes,yes,yes,no,yes,-,,,,
-LL,LL,Lilac Hall,yes,yes,yes,no,yes,-,,,,
-LO,LO,Live Oak Hall,yes,yes,yes,no,yes,-,,,,
-MDF,MDF,Main Distribution Facility,yes,yes,yes,no,yes,-,,,,
-MG,MG,Magnolia Hall,yes,yes,yes,no,yes,-,,,,PLC6+D6 is 378
-MZ,MZ,Manzanita Hall,yes,yes,yes,no,yes,-,,,,PL+PSB5 is 1070
-NC: H,Field North of F10,North Campus Hill Top (Trailers near Boeing Site),no,yes,yes,no,yes,-,,,,
-NC: R,G12,North Campus Rydell (Parking Lot Leased Out),no,yes,yes,no,yes,-,,,,
-NH,NH,Nordhoff Hall,yes,yes,yes,no,yes,-,,,,
-OV,UL,University Library,yes,yes,yes,yes,yes,ov,2900,393,,
-PL: B2,PL: B2,Parking Lot B2,yes,yes,yes,yes,no,102,3500,1000,,
-PL: E6,PL: E6,Parking Lot E6,no,yes,yes,yes,no,7,5400,400,note: pl:e6 is not enough,
-PPM,PPM,Physical Plant Management,yes,yes,yes,no,yes,-,,,,
-PS: B3,PS: B3,Parking Structure B3,yes,yes,yes,yes,yes,124,4540,1480,note: moved to green,
-PS: B5,PS: B5,Parking Structure B5,yes,yes,yes,yes,yes,3,5490,,note: ps:b5 is not enough,
-PS: G3,PS: G3,Parking Structure G3,yes,yes,yes,yes,yes,76,2230,682,,
-RE,RE,Redwood Hall,yes,yes,yes,yes,yes,re,1100,584,,
-SC,SC,Sierra Center,yes,no,yes,no,yes,-,,,,
-SH,SH,Sierra Hall,yes,yes,yes,yes,yes,sh,1500,140,,
-SQ,SQ,Sequoia Hall,yes,yes,yes,no,yes,-,,,,
-SRC,SRC,Student Recreation Center,yes,no,yes,no,yes,-,,,,
-ST,ST,Sierra Tower,yes,yes,yes,no,yes,-,,,,
-UN,VH,Valera Hall,yes,yes,yes,no,yes,-,,,,
-USU,USU,University Student Union,yes,no,yes,yes,yes,usu,3600,93,,
-VPAC,TS,The Soraya,yes,no,yes,no,yes,-,,,,
-,PS: G6,Parking Structure G6,yes,no,no,yes,no,27,3970,639,,
-,PL: B1,Parking Lot B1,yes,no,no,yes,no,102,3500,947,both b1 and b2 have to go to 102,
-,PL: B4,Parking Lot B4,yes,no,no,yes,no,127,4470,522,,
-,PL:B6,Parking Lot B6,yes,no,no,yes,no,3,5490,780,,
-,PL:B5,Parking Lot B5,yes,no,no,yes,no,3,5490,,plb6 and lot and structure b5 go to 3,
-,PL:C6,Parking Lot C6,yes,no,no,yes,no,1,4640,,,
-,PL:D6,Parking Lot D6,yes,no,no,yes,no,1,4640,,both c6 and d6 go to 1,
-,PL:F5,Parking Lot F5,yes,no,no,yes,no,AAA,,623,,
-,PL:B3,Parking Lot,yes,no,no,yes,no,,,,,
+15 min Energy Abbreviation,Campus Map Abbreviation,Building Name,In borders?,kW given?,kWh given?,Generation?,Usage?,Node (if solar),kVA,Actual kVA used,,,,
+ADC,AC,Art and Design Center,yes,yes,yes,no,yes,-,,,,,,o
+AR,AR,Arbor Grill,yes,yes,yes,no,yes,-,,,,,,o
+BB,BB,Bookstein Hall,yes,yes,yes,no,yes,-,,,,,,o
+BH,BH,Bayramian Hall,yes,yes,yes,no,yes,-,,,,,,o
+BK,CSC,Campus Store Complex,yes,yes,yes,yes,yes,bk,1500,212,,,,o
+BP,BP,Donald Bianchi Planetarium,yes,yes,yes,no,yes,-,,,,,,o
+CR,CR,Chaparral Hall,yes,yes,yes,no,yes,-,,,,,,o
+CS,CS,Citrus Hall,yes,yes,yes,no,yes,-,,,,,,o
+CY,CY,Cypress Hall,yes,yes,yes,no,yes,-,,,,,,o
+ED,ED,Education,yes,yes,yes,no,yes,-,,,,,,o
+EH,EH,Eucalyptus Hall,yes,yes,yes,no,yes,-,,,,,,o
+JD,JD,Jacaranda Hall,yes,yes,yes,yes,yes,jd,800,641,,,,o
+JR,JR,Jerome Richfield Hall,yes,yes,yes,no,yes,-,,,,,,o
+LL,LL,Lilac Hall,yes,yes,yes,no,yes,-,,,,,,o
+LO,LO,Live Oak Hall,yes,yes,yes,no,yes,-,,,,,,o
+MDF,MDF,Main Distribution Facility,yes,yes,yes,no,yes,-,,,,,,o
+MG,MG,Magnolia Hall,yes,yes,yes,no,yes,-,,,,PLC6+D6 is 378,,o
+MZ,MZ,Manzanita Hall,yes,yes,yes,no,yes,-,,,,PL+PSB5 is 1070,,o
+NC: H,Field North of F10,North Campus Hill Top (Trailers near Boeing Site),no,yes,yes,no,yes,-,,,,,,o
+NC: R,G12,North Campus Rydell (Parking Lot Leased Out),no,yes,yes,no,yes,-,,,,,,o
+NH,NH,Nordhoff Hall,yes,yes,yes,no,yes,-,,,,,,o
+OV,UL,University Library,yes,yes,yes,yes,yes,ov,2900,393,,,,o
+PL: B2,PL: B2,Parking Lot B2,yes,yes,yes,yes,no,102,3500,1000,,,,o
+PL: E6,PL: E6,Parking Lot E6,no,yes,yes,yes,no,7,5400,400,note: pl:e6 is not enough,,,o
+PPM,PPM,Physical Plant Management,yes,yes,yes,no,yes,-,,,,,,o
+PS: B3,PS: B3,Parking Structure B3,yes,yes,yes,yes,yes,124,4540,1480,note: moved to green,,,o
+PS: B5,PS: B5,Parking Structure B5,yes,yes,yes,yes,yes,3,5490,,note: ps:b5 is not enough,,,o
+PS: G3,PS: G3,Parking Structure G3,yes,yes,yes,yes,yes,76,2230,682,,,,o
+RE,RE,Redwood Hall,yes,yes,yes,yes,yes,re,1100,584,,,,o
+SC,SC,Sierra Center,yes,no,yes,no,yes,-,,,,,,o
+SH,SH,Sierra Hall,yes,yes,yes,yes,yes,sh,1500,140,,,,o
+SQ,SQ,Sequoia Hall,yes,yes,yes,no,yes,-,,,,,,o
+SRC,SRC,Student Recreation Center,yes,no,yes,no,yes,-,,,,,,o
+ST,ST,Sierra Tower,yes,yes,yes,no,yes,-,,,,,,o
+UN,VH,Valera Hall,yes,yes,yes,no,yes,-,,,,,,o
+USU,USU,University Student Union,yes,no,yes,yes,yes,usu,3600,93,,,,o
+VPAC,TS,The Soraya,yes,no,yes,no,yes,-,,,,,,o
+,PS: G6,Parking Structure G6,yes,no,no,yes,no,27,3970,639,,,,o
+,PL: B1,Parking Lot B1,yes,no,no,yes,no,102,3500,947,both b1 and b2 have to go to 102,,,o
+,PL: B4,Parking Lot B4,yes,no,no,yes,no,127,4470,522,,,,o
+,PL:B6,Parking Lot B6,yes,no,no,yes,no,3,5490,780,,,,o
+,PL:B5,Parking Lot B5,yes,no,no,yes,no,3,5490,,plb6 and lot and structure b5 go to 3,,,o
+,PL:C6,Parking Lot C6,yes,no,no,yes,no,1,4640,,,,,o
+,PL:D6,Parking Lot D6,yes,no,no,yes,no,1,4640,,both c6 and d6 go to 1,,,o
+,PL:F5,Parking Lot F5,yes,no,no,yes,no,AAA,,623,,,,o
+,PL:B3,Parking Lot,yes,no,no,yes,no,,,,,,,o
